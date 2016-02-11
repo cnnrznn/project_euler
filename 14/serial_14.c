@@ -23,7 +23,7 @@ int main()
     long i;
     for (i=1; i<LIMIT; i++) {   
         tval = collatz(i);
-        if (tval < maxval) {
+        if (tval > maxval) {
             maxval = tval;
             maxi = i;
         }
