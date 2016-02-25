@@ -28,7 +28,7 @@ def greatest_descent(pyramid, dyn, i, j):
 # [
 # [x1],
 # [x2, x3],
-# [x4, x5],
+# [x4, x5, x6],
 # etc.
 pyramid = []
 with sys.stdin as stdin:
