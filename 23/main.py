@@ -24,10 +24,8 @@ for i in xrange(1, len(sum_abund)):
     if sum(prop_div(i)) > i:
         abund.append(i)
         for j in xrange(len(abund)):
-            try:
+            if i + abund[j] < len(sum_abund):
                 sum_abund[i + abund[j]] = 1
-            except IndexError:
-                pass
 
 summ = 0
 
