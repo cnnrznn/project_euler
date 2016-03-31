@@ -3,6 +3,7 @@
 # Solution to Project Euler #23
 
 from math import sqrt
+import time
 
 def prop_div(n):
     divs = [1]
@@ -17,12 +18,14 @@ def prop_div(n):
 sum_abund = [0 for i in xrange(28124)] # 1=abundant number
 abund = []
 
+start = time.clock()
+
 for i in xrange(1, len(sum_abund)):
     if sum(prop_div(i)) > i:
         abund.append(i)
         for j in xrange(len(abund)):
             try:
-                sum_abund[i+abund[j]] = 1
+                sum_abund[i + abund[j]] = 1
             except IndexError:
                 pass
 
@@ -32,4 +35,7 @@ for i in xrange(len(sum_abund)):
     if not sum_abund[i]:
         summ += i
 
-print summ
+end = time.clock()
+
+
+print summ, end-start
