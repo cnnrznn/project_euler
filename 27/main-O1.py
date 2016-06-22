@@ -2,6 +2,23 @@
 
 # Solution to Project Euler Problem #27
 
+def binsearch(val, arr, start, stop):
+    if stop - start < 2:
+        if arr[start] == val:
+            return True
+        else:
+            return False
+
+    mid = (start + stop) / 2
+
+    if arr[mid] == val:
+        return True
+
+    if arr[mid] < val:
+        return binsearch(val, arr, mid+1, stop)
+    if arr[mid] > val:
+        return binsearch(val, arr, start, mid)
+
 _size = 10000000
 
 # prime sieve
@@ -31,7 +48,7 @@ while num_remain > 1:
     for i in xrange(len(remain)):
         for j in xrange(len(remain[i])):
             if remain[i][j]:
-                if (n*n + A[i]*n + B[j]) not in primes:
+                if not(binsearch((n*n + A[i]*n + B[j]), primes, 0, len(primes))):
                     num_remain -= 1
                     remain[i][j] = 0
 
